@@ -28,11 +28,11 @@ Análise de sinais reais de aceleração de drones nos domínios do tempo e da f
 
 1. Acesse o link acima e baixe o dataset.
 2. Extraia os 111 arquivos `.mat` em `data/raw/DADOS/` (a pasta deve se chamar exatamente `DADOS`).
-3. Os notebooks e o módulo `src/io_utils.py` esperam o caminho `data/raw/DADOS/*.mat`.
+3. O módulo `src/io_utils.py` calcula o caminho `data/raw/DADOS/` a partir da própria posição, então funciona de qualquer pasta de trabalho.
 
 ### Estrutura dos arquivos
 
-Cada `.mat` tem as variáveis `AccData` (sinal `Vib_Data`, vetor de tempo `t`, `samplingRate`) e, em 108 dos 111 arquivos, `IMUData` (3 canais) e `BatteryVolt`.
+Cada `.mat` tem a variável `AccData` (campos `Vib_Data`, `t`, `samplingRate` e `DATE`) e, em 108 dos 111 arquivos, `IMUData` (3 canais) e `BatteryVolt`. Os 3 arquivos sem IMU são `F0_SV0_SP0_C4_R1` a `R3`.
 
 Nome do arquivo: `F#_SV#_SP#_C#[_R#].mat`.
 
@@ -40,7 +40,7 @@ Nome do arquivo: `F#_SV#_SP#_C#[_R#].mat`.
 
 ### Sensor utilizado
 
-`AccData`, 1 canal, fs = 10 kHz (Nyquist de 5 kHz), unidade **não documentada** (tratada como u.a.). Provavelmente é o acelerômetro piezoelétrico descrito no dataset, mas isso não está confirmado nos arquivos. A IMU (`IMUData`, 1 kHz) não foi usada.
+`AccData`, 1 canal, fs = 10 kHz (Nyquist de 5 kHz), unidade **não documentada** (tratada como u.a.). Provavelmente é o acelerômetro piezoelétrico descrito no dataset, mas isso não está confirmado nos arquivos. A IMU (`IMUData`, 1 kHz) não foi usada: tem rampa de partida e parada, offset de gravidade em um canal, 18 registros com fs calculada até 0,03% abaixo de 1000 Hz e falta em 3 registros.
 
 ### Registros utilizados
 
@@ -53,7 +53,7 @@ Nome do arquivo: `F#_SV#_SP#_C#[_R#].mat`.
 
 Tabelas completas: `results/tables/registros.csv` (todos) e `results/tables/registros_selecionados.csv` (usados).
 
-**Critério de par comparável:** mesmo `SP` e mesmo `C`. Nos saudáveis, `C2` era cópia de `C1`, então os defeituosos `C2` não têm saudável próprio.
+**Critério de par comparável:** mesmo `SP`, mesmo `C`, mesmo sensor e mesma duração. Nos saudáveis, `C2` era cópia de `C1`, então os defeituosos `C2` não têm saudável próprio.
 
 **Validação nos 99 registros:** nenhum NaN, nenhuma saturação (os extremos ocorrem em 1 ou 2 amostras por registro), razão entre o maior e o menor desvio padrão por janela de 2 s de no máximo 1,95 (limiar adotado: 3). Nenhum recorte foi aplicado.
 
@@ -62,26 +62,38 @@ Tabelas completas: `results/tables/registros.csv` (todos) e `results/tables/regi
 - Janela de **2 s = 20000 amostras** (fs = 10 kHz), sem sobreposição, resolução espectral Δf = 0,5 Hz.
 - **2370 janelas**: 480 saudáveis e 1890 defeituosas (cerca de 20% saudáveis).
 - Cada janela guarda o arquivo de origem e o `id` do registro (grupo de sinais idênticos), usado na divisão treino/teste.
-- Tabela: `data/processed/janelas.csv` (só índices de início e fim, os sinais são relidos do `.mat`).
+- Tabela: `data/processed/janelas.csv` (só índices de início `ini` e fim `fim`, os sinais são relidos do `.mat`).
 
 ## Estrutura do repositório
 
 ```
 drone-vibration-analysis/
 ├── data/
-│   ├── raw/            # dataset original (não versionado)
-│   └── processed/      # janelas e tabelas de características
-├── notebooks/          # análises com texto explicativo
+│   ├── raw/                  # dataset original (não versionado)
+│   └── processed/
+│       ├── janelas.csv       # índices das 2370 janelas
+│       └── features_tempo.csv  # características temporais por janela
+├── notebooks/                # análises com texto explicativo
 ├── src/
-│   └── io_utils.py     # leitura, metadados, rótulo, id e funções auxiliares
+│   └── io_utils.py           # leitura, metadados, rótulo, id e funções auxiliares
 ├── results/
-│   ├── figures/        # gráficos gerados
-│   └── tables/         # tabelas geradas (CSV)
-├── report/             # relatórios em PDF
-├── slides/             # apresentação final em PDF
+│   ├── figures/              # gráficos gerados
+│   └── tables/               # tabelas geradas (CSV)
+├── report/                   # relatórios em PDF
+├── slides/                   # apresentação final em PDF
 ├── requirements.txt
 └── README.md
 ```
+
+### Módulo `src/io_utils.py`
+
+| Função | O que faz |
+|---|---|
+| `get_info_name` | extrai `F`, `SV`, `SP`, `C` e `R` do nome do arquivo |
+| `get_data` | lê um `.mat` e devolve sinais e checagens (fs, N, NaN) |
+| `ler_acc` | lê só o `AccData` (usada nas janelas) |
+| `get_id`, `get_rotulo` | marcam registros idênticos e criam o rótulo (`y = 1` defeituosa) |
+| `estat`, `std_por_bloco`, `fundamental`, `digest` | estatísticas, desvio por bloco, frequência do pico entre 30 e 80 Hz e hash do sinal |
 
 ## Instalação
 
@@ -107,7 +119,7 @@ Na primeira célula do notebook:
 !pip install -r requirements.txt
 ```
 
-Depois, coloque o dataset em `data/raw/DADOS/` (por upload ou Google Drive). Nos notebooks, use `sys.path.append(".")` no lugar de `".."`.
+Depois, coloque o dataset em `data/raw/DADOS/` (por upload ou Google Drive). Nos notebooks, use `sys.path.append(".")` no lugar de `".."`, e troque os caminhos `../data/...` por `data/...`.
 
 ## Ordem de execução dos notebooks
 
@@ -120,13 +132,31 @@ Depois, coloque o dataset em `data/raw/DADOS/` (por upload ou Google Drive). Nos
 | `05_investigacao_adicional.ipynb` | Pergunta adicional do grupo | 3.6 | 1ª |
 | `06_classificacao.ipynb` | Modelos A (tempo), B (frequência) e C (combinado) | 3.5 | 2ª |
 
-Execute em ordem. Cada notebook deve rodar do início ao fim (*Restart and Run All*). O notebook 01 gera as tabelas que os seguintes leem.
+Execute em ordem. Cada notebook deve rodar do início ao fim (*Restart and Run All*). O notebook 01 gera `registros.csv`, `registros_selecionados.csv` e `janelas.csv`, que os seguintes leem.
+
+## Domínio do tempo (3.2)
+
+Para cada janela de 2 s foram calculadas, sobre as N = 20000 amostras x[n] do `AccData`:
+
+| Medida | Definição | Unidade |
+|---|---|---|
+| Média | (1/N) Σ x[n] | u.a. |
+| Potência média | (1/N) Σ x[n]² | u.a.² |
+| RMS | √(potência média) | u.a. |
+| Desvio padrão | √((1/N) Σ (x[n] − média)²), divisor N | u.a. |
+| Pico absoluto | max \|x[n]\| | u.a. |
+| Pico a pico | max x − min x | u.a. |
+| Fator de crista | pico absoluto / RMS | adimensional |
+
+Com divisor N no desvio, vale potência = média² + desvio², usado como teste de consistência. Saída: `data/processed/features_tempo.csv` (uma linha por janela, com `arquivo`, `id`, `rotulo` e as sete medidas). Figuras em `results/figures/`.
+
+**Par ilustrativo** usado na figura temporal: `F0_SV0_SP1_C1_R1` (saudável) e `F1_SV3_SP1_C1` (defeituosa), mesmo `SP`, `C`, sensor e duração, trecho de 20,0 a 20,5 s. É um par entre vários possíveis, escolhido por já ter sido inspecionado, e não é apresentado como o mais representativo.
 
 ## Pergunta adicional do grupo
 
 [Descreva aqui a pergunta escolhida e o método usado.]
 
-Pergunta em estudo: a velocidade (`SP`) desloca os picos espectrais? Como ponto de partida, a frequência do maior pico do `AccData` entre 30 e 80 Hz nos registros `SP1` é de 56,3 Hz (desvio de 0,45 Hz) nos saudáveis e varia de 50,7 a 57,0 Hz (desvio de 1,8 a 4,9 Hz) nos defeituosos, sem tendência clara com a severidade.
+Pergunta em estudo: a velocidade (`SP`) desloca os picos espectrais? Como ponto de partida, a frequência do maior pico do `AccData` entre 30 e 80 Hz (trecho de 10 a 30 s) nos registros `SP1` é de 56,3 Hz (desvio de 0,45 Hz) nos 6 saudáveis, e as médias dos grupos defeituosos (3 registros cada) vão de 50,7 a 57,0 Hz com desvios de 1,8 a 4,9 Hz, sem tendência clara com a severidade. Com 3 registros por grupo, isso é descritivo e não permite concluir causa.
 
 ## Classificação
 
