@@ -1,3 +1,4 @@
 *.mat
 data/raw/*
 !data/raw/.gitkeep
+.venv
