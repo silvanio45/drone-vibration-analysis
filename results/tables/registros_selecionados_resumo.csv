@@ -1,0 +1,100 @@
+arquivo,id,rotulo,y,F,tipo_falha,SV,SP,C,R,fs_acc,n_acc_sig,dur_acc,n_jan
+F0_SV0_SP1_C1_R1.mat,3,saudavel,0,0,saudável,0,1,1,1,10000.0,600000,60.0,30
+F0_SV0_SP1_C1_R2.mat,4,saudavel,0,0,saudável,0,1,1,2,10000.0,600000,60.0,30
+F0_SV0_SP1_C1_R3.mat,5,saudavel,0,0,saudável,0,1,1,3,10000.0,600000,60.0,30
+F0_SV0_SP1_C3_R1.mat,6,saudavel,0,0,saudável,0,1,3,1,10000.0,200000,20.0,10
+F0_SV0_SP1_C3_R2.mat,7,saudavel,0,0,saudável,0,1,3,2,10000.0,600000,60.0,30
+F0_SV0_SP1_C3_R3.mat,8,saudavel,0,0,saudável,0,1,3,3,10000.0,600000,60.0,30
+F0_SV0_SP2_C1_R1.mat,9,saudavel,0,0,saudável,0,2,1,1,10000.0,600000,60.0,30
+F0_SV0_SP2_C1_R2.mat,10,saudavel,0,0,saudável,0,2,1,2,10000.0,600000,60.0,30
+F0_SV0_SP2_C1_R3.mat,11,saudavel,0,0,saudável,0,2,1,3,10000.0,600000,60.0,30
+F0_SV0_SP2_C3_R1.mat,12,saudavel,0,0,saudável,0,2,3,1,10000.0,200000,20.0,10
+F0_SV0_SP2_C3_R2.mat,13,saudavel,0,0,saudável,0,2,3,2,10000.0,600000,60.0,30
+F0_SV0_SP2_C3_R3.mat,14,saudavel,0,0,saudável,0,2,3,3,10000.0,600000,60.0,30
+F0_SV0_SP3_C1_R1.mat,15,saudavel,0,0,saudável,0,3,1,1,10000.0,600000,60.0,30
+F0_SV0_SP3_C1_R2.mat,16,saudavel,0,0,saudável,0,3,1,2,10000.0,600000,60.0,30
+F0_SV0_SP3_C1_R3.mat,17,saudavel,0,0,saudável,0,3,1,3,10000.0,600000,60.0,30
+F0_SV0_SP3_C3_R1.mat,18,saudavel,0,0,saudável,0,3,3,1,10000.0,200000,20.0,10
+F0_SV0_SP3_C3_R2.mat,19,saudavel,0,0,saudável,0,3,3,2,10000.0,600000,60.0,30
+F0_SV0_SP3_C3_R3.mat,20,saudavel,0,0,saudável,0,3,3,3,10000.0,600000,60.0,30
+F1_SV1_SP1_C1.mat,21,defeituoso,1,1,corte na borda,1,1,1,,10000.0,600000,60.0,30
+F1_SV1_SP1_C2.mat,22,defeituoso,1,1,corte na borda,1,1,2,,10000.0,600000,60.0,30
+F1_SV1_SP1_C3.mat,23,defeituoso,1,1,corte na borda,1,1,3,,10000.0,200000,20.0,10
+F1_SV1_SP2_C1.mat,24,defeituoso,1,1,corte na borda,1,2,1,,10000.0,600000,60.0,30
+F1_SV1_SP2_C2.mat,25,defeituoso,1,1,corte na borda,1,2,2,,10000.0,600000,60.0,30
+F1_SV1_SP2_C3.mat,26,defeituoso,1,1,corte na borda,1,2,3,,10000.0,200000,20.0,10
+F1_SV1_SP3_C1.mat,27,defeituoso,1,1,corte na borda,1,3,1,,10000.0,600000,60.0,30
+F1_SV1_SP3_C2.mat,28,defeituoso,1,1,corte na borda,1,3,2,,10000.0,600000,60.0,30
+F1_SV1_SP3_C3.mat,29,defeituoso,1,1,corte na borda,1,3,3,,10000.0,200000,20.0,10
+F1_SV2_SP1_C1.mat,30,defeituoso,1,1,corte na borda,2,1,1,,10000.0,600000,60.0,30
+F1_SV2_SP1_C2.mat,31,defeituoso,1,1,corte na borda,2,1,2,,10000.0,600000,60.0,30
+F1_SV2_SP1_C3.mat,32,defeituoso,1,1,corte na borda,2,1,3,,10000.0,200000,20.0,10
+F1_SV2_SP2_C1.mat,33,defeituoso,1,1,corte na borda,2,2,1,,10000.0,600000,60.0,30
+F1_SV2_SP2_C2.mat,34,defeituoso,1,1,corte na borda,2,2,2,,10000.0,600000,60.0,30
+F1_SV2_SP2_C3.mat,35,defeituoso,1,1,corte na borda,2,2,3,,10000.0,200000,20.0,10
+F1_SV2_SP3_C1.mat,36,defeituoso,1,1,corte na borda,2,3,1,,10000.0,600000,60.0,30
+F1_SV2_SP3_C2.mat,37,defeituoso,1,1,corte na borda,2,3,2,,10000.0,600000,60.0,30
+F1_SV2_SP3_C3.mat,38,defeituoso,1,1,corte na borda,2,3,3,,10000.0,200000,20.0,10
+F1_SV3_SP1_C1.mat,39,defeituoso,1,1,corte na borda,3,1,1,,10000.0,600000,60.0,30
+F1_SV3_SP1_C2.mat,40,defeituoso,1,1,corte na borda,3,1,2,,10000.0,600000,60.0,30
+F1_SV3_SP1_C3.mat,41,defeituoso,1,1,corte na borda,3,1,3,,10000.0,200000,20.0,10
+F1_SV3_SP2_C1.mat,42,defeituoso,1,1,corte na borda,3,2,1,,10000.0,600000,60.0,30
+F1_SV3_SP2_C2.mat,43,defeituoso,1,1,corte na borda,3,2,2,,10000.0,600000,60.0,30
+F1_SV3_SP2_C3.mat,44,defeituoso,1,1,corte na borda,3,2,3,,10000.0,200000,20.0,10
+F1_SV3_SP3_C1.mat,45,defeituoso,1,1,corte na borda,3,3,1,,10000.0,600000,60.0,30
+F1_SV3_SP3_C2.mat,46,defeituoso,1,1,corte na borda,3,3,2,,10000.0,600000,60.0,30
+F1_SV3_SP3_C3.mat,47,defeituoso,1,1,corte na borda,3,3,3,,10000.0,200000,20.0,10
+F2_SV1_SP1_C1.mat,48,defeituoso,1,2,trinca,1,1,1,,10000.0,600000,60.0,30
+F2_SV1_SP1_C2.mat,49,defeituoso,1,2,trinca,1,1,2,,10000.0,600000,60.0,30
+F2_SV1_SP1_C3.mat,50,defeituoso,1,2,trinca,1,1,3,,10000.0,200000,20.0,10
+F2_SV1_SP2_C1.mat,51,defeituoso,1,2,trinca,1,2,1,,10000.0,600000,60.0,30
+F2_SV1_SP2_C2.mat,52,defeituoso,1,2,trinca,1,2,2,,10000.0,600000,60.0,30
+F2_SV1_SP2_C3.mat,53,defeituoso,1,2,trinca,1,2,3,,10000.0,200000,20.0,10
+F2_SV1_SP3_C1.mat,54,defeituoso,1,2,trinca,1,3,1,,10000.0,600000,60.0,30
+F2_SV1_SP3_C2.mat,55,defeituoso,1,2,trinca,1,3,2,,10000.0,600000,60.0,30
+F2_SV1_SP3_C3.mat,56,defeituoso,1,2,trinca,1,3,3,,10000.0,200000,20.0,10
+F2_SV2_SP1_C1.mat,57,defeituoso,1,2,trinca,2,1,1,,10000.0,600000,60.0,30
+F2_SV2_SP1_C2.mat,58,defeituoso,1,2,trinca,2,1,2,,10000.0,600000,60.0,30
+F2_SV2_SP1_C3.mat,59,defeituoso,1,2,trinca,2,1,3,,10000.0,200000,20.0,10
+F2_SV2_SP2_C1.mat,60,defeituoso,1,2,trinca,2,2,1,,10000.0,600000,60.0,30
+F2_SV2_SP2_C2.mat,61,defeituoso,1,2,trinca,2,2,2,,10000.0,600000,60.0,30
+F2_SV2_SP2_C3.mat,62,defeituoso,1,2,trinca,2,2,3,,10000.0,200000,20.0,10
+F2_SV2_SP3_C1.mat,63,defeituoso,1,2,trinca,2,3,1,,10000.0,600000,60.0,30
+F2_SV2_SP3_C2.mat,64,defeituoso,1,2,trinca,2,3,2,,10000.0,600000,60.0,30
+F2_SV2_SP3_C3.mat,65,defeituoso,1,2,trinca,2,3,3,,10000.0,200000,20.0,10
+F2_SV3_SP1_C1.mat,66,defeituoso,1,2,trinca,3,1,1,,10000.0,600000,60.0,30
+F2_SV3_SP1_C2.mat,67,defeituoso,1,2,trinca,3,1,2,,10000.0,600000,60.0,30
+F2_SV3_SP1_C3.mat,68,defeituoso,1,2,trinca,3,1,3,,10000.0,200000,20.0,10
+F2_SV3_SP2_C1.mat,69,defeituoso,1,2,trinca,3,2,1,,10000.0,600000,60.0,30
+F2_SV3_SP2_C2.mat,70,defeituoso,1,2,trinca,3,2,2,,10000.0,600000,60.0,30
+F2_SV3_SP2_C3.mat,71,defeituoso,1,2,trinca,3,2,3,,10000.0,200000,20.0,10
+F2_SV3_SP3_C1.mat,72,defeituoso,1,2,trinca,3,3,1,,10000.0,600000,60.0,30
+F2_SV3_SP3_C2.mat,73,defeituoso,1,2,trinca,3,3,2,,10000.0,600000,60.0,30
+F2_SV3_SP3_C3.mat,74,defeituoso,1,2,trinca,3,3,3,,10000.0,200000,20.0,10
+F3_SV1_SP1_C1.mat,75,defeituoso,1,3,corte na superfície,1,1,1,,10000.0,600000,60.0,30
+F3_SV1_SP1_C2.mat,76,defeituoso,1,3,corte na superfície,1,1,2,,10000.0,600000,60.0,30
+F3_SV1_SP1_C3.mat,77,defeituoso,1,3,corte na superfície,1,1,3,,10000.0,200000,20.0,10
+F3_SV1_SP2_C1.mat,78,defeituoso,1,3,corte na superfície,1,2,1,,10000.0,600000,60.0,30
+F3_SV1_SP2_C2.mat,79,defeituoso,1,3,corte na superfície,1,2,2,,10000.0,600000,60.0,30
+F3_SV1_SP2_C3.mat,80,defeituoso,1,3,corte na superfície,1,2,3,,10000.0,200000,20.0,10
+F3_SV1_SP3_C1.mat,81,defeituoso,1,3,corte na superfície,1,3,1,,10000.0,600000,60.0,30
+F3_SV1_SP3_C2.mat,82,defeituoso,1,3,corte na superfície,1,3,2,,10000.0,600000,60.0,30
+F3_SV1_SP3_C3.mat,83,defeituoso,1,3,corte na superfície,1,3,3,,10000.0,200000,20.0,10
+F3_SV2_SP1_C1.mat,84,defeituoso,1,3,corte na superfície,2,1,1,,10000.0,600000,60.0,30
+F3_SV2_SP1_C2.mat,85,defeituoso,1,3,corte na superfície,2,1,2,,10000.0,600000,60.0,30
+F3_SV2_SP1_C3.mat,86,defeituoso,1,3,corte na superfície,2,1,3,,10000.0,200000,20.0,10
+F3_SV2_SP2_C1.mat,87,defeituoso,1,3,corte na superfície,2,2,1,,10000.0,600000,60.0,30
+F3_SV2_SP2_C2.mat,88,defeituoso,1,3,corte na superfície,2,2,2,,10000.0,600000,60.0,30
+F3_SV2_SP2_C3.mat,89,defeituoso,1,3,corte na superfície,2,2,3,,10000.0,200000,20.0,10
+F3_SV2_SP3_C1.mat,90,defeituoso,1,3,corte na superfície,2,3,1,,10000.0,600000,60.0,30
+F3_SV2_SP3_C2.mat,91,defeituoso,1,3,corte na superfície,2,3,2,,10000.0,600000,60.0,30
+F3_SV2_SP3_C3.mat,92,defeituoso,1,3,corte na superfície,2,3,3,,10000.0,200000,20.0,10
+F3_SV3_SP1_C1.mat,93,defeituoso,1,3,corte na superfície,3,1,1,,10000.0,600000,60.0,30
+F3_SV3_SP1_C2.mat,94,defeituoso,1,3,corte na superfície,3,1,2,,10000.0,600000,60.0,30
+F3_SV3_SP1_C3.mat,95,defeituoso,1,3,corte na superfície,3,1,3,,10000.0,200000,20.0,10
+F3_SV3_SP2_C1.mat,96,defeituoso,1,3,corte na superfície,3,2,1,,10000.0,600000,60.0,30
+F3_SV3_SP2_C2.mat,97,defeituoso,1,3,corte na superfície,3,2,2,,10000.0,600000,60.0,30
+F3_SV3_SP2_C3.mat,98,defeituoso,1,3,corte na superfície,3,2,3,,10000.0,200000,20.0,10
+F3_SV3_SP3_C1.mat,99,defeituoso,1,3,corte na superfície,3,3,1,,10000.0,600000,60.0,30
+F3_SV3_SP3_C2.mat,100,defeituoso,1,3,corte na superfície,3,3,2,,10000.0,600000,60.0,30
+F3_SV3_SP3_C3.mat,101,defeituoso,1,3,corte na superfície,3,3,3,,10000.0,200000,20.0,10

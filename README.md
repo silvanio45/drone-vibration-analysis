@@ -53,7 +53,7 @@ Nome do arquivo: `F#_SV#_SP#_C#[_R#].mat`.
 
 Tabelas completas: `results/tables/registros.csv` (todos) e `results/tables/registros_selecionados.csv` (usados).
 
-**Critério de par comparável:** mesmo `SP`, mesmo `C`, mesmo sensor e mesma duração. Nos saudáveis, `C2` era cópia de `C1`, então os defeituosos `C2` não têm saudável próprio.
+**Critério de par comparável:** mesmo `SP`, mesmo `C`, mesmo sensor (`AccData`, 10 kHz) e mesmo janelamento (janelas de 2 s). A duração total nem sempre é igual: no `C3`, os defeituosos têm 20 s e os saudáveis têm 20 s (`R1`) ou 60 s (`R2`, `R3`). Isso muda o número de janelas por registro (10 ou 30), mas não o cálculo de cada janela. Nos saudáveis, `C2` era cópia de `C1`, então os defeituosos `C2` não têm saudável próprio e são comparados com os saudáveis `C1` do mesmo `SP`. Tabelas: `results/tables/registros_selecionados_resumo.csv` e `results/tables/grupos_comparacao.csv` (notebook 1, seção 1.6).
 
 **Validação nos 99 registros:** nenhum NaN, nenhuma saturação (os extremos ocorrem em 1 ou 2 amostras por registro), razão entre o maior e o menor desvio padrão por janela de 2 s de no máximo 1,95 (limiar adotado: 3). Nenhum recorte foi aplicado.
 
