@@ -6,7 +6,12 @@ import numpy as np
 import scipy.io as sio
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = ROOT / "data" / "raw" / "DADOS"
+RAW_DIR = ROOT / "data" / "raw"
+# README pede "DADOS"; aceita também o nome da pasta original do download.
+DATA_DIR = next(
+    (p for p in (RAW_DIR / "DADOS", RAW_DIR / "DronePropB Ground Testing Dataset") if p.is_dir()),
+    RAW_DIR / "DADOS",
+)
 
 PADRAO = re.compile(r"F(\d+)_SV(\d+)_SP(\d+)_C(\d+)(?:_R(\d+))?")
 
