@@ -1,0 +1,4 @@
+SP,saudável (Hz),defeituosa (Hz),diferença (%),AUC,AUC só setembro,defeituosas abaixo do menor saudável (%),amplitude saudável (Hz),IQR defeituosa (Hz)
+1,56.25,53.0,-5.778,0.216,0.204,74.074,0.75,3.875
+2,100.0,95.5,-4.5,0.148,0.185,70.37,42.75,6.125
+3,133.5,130.25,-2.434,0.38,0.213,0.0,43.0,8.625

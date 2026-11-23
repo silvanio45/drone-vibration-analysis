@@ -9,7 +9,18 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "data" / "raw"
 # README pede "DADOS"; aceita também o nome da pasta original do download.
 DATA_DIR = next(
-    (p for p in (RAW_DIR / "DADOS", RAW_DIR / "DronePropB Ground Testing Dataset") if p.is_dir()),
+    (
+        p
+        for p in (
+            RAW_DIR / "DADOS",
+            RAW_DIR / "DronePropB Ground Testing Dataset",
+            # o .zip do Mendeley extrai uma pasta a mais por fora
+            RAW_DIR
+            / "DronePropB Ground Testing Dataset for Commercial Drones with Defective Propellers"
+            / "DronePropB Ground Testing Dataset",
+        )
+        if p.is_dir()
+    ),
     RAW_DIR / "DADOS",
 )
 

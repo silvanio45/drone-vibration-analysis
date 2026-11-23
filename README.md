@@ -125,14 +125,15 @@ Depois, coloque o dataset em `data/raw/DADOS/` (por upload ou Google Drive). Nos
 
 | Notebook | Conteúdo | Seção do projeto | Entrega |
 |---|---|---|---|
-| `01_selecao_e_preparacao.ipynb` | Metadados, tabela de registros, verificação e janelamento | 3.1 | 1ª |
-| `02_dominio_tempo.ipynb` | Sinais no tempo e características temporais | 3.2 | 1ª |
-| `03_dominio_frequencia.ipynb` | FFT, espectros, características espectrais, comparação entre domínios | 3.3 (1–5) e 3.4 | 1ª |
-| `04_resolucao_e_aliasing.ipynb` | Efeito do tamanho do trecho e da amostragem | 3.3 (6–7) | 1ª |
-| `05_investigacao_adicional.ipynb` | Pergunta adicional do grupo | 3.6 | 1ª |
-| `06_classificacao.ipynb` | Modelos A (tempo), B (frequência) e C (combinado) | 3.5 | 2ª |
+| `1_selecao_e_preparacao.ipynb` | Metadados, tabela de registros, verificação e janelamento | 3.1 | 1ª |
+| `2_dominio_tempo.ipynb` | Sinais no tempo e características temporais | 3.2 | 1ª |
+| `3_dominio_frec.ipynb` | FFT, espectros e características espectrais | 3.3 (1–5) | 1ª |
+| `4_resolucao_e_aliasing.ipynb` | Efeito do tamanho do trecho e da amostragem | 3.3 (6–7) | 1ª |
+| `5_comparacao_dominios.ipynb` | Comparação entre os domínios do tempo e da frequência | 3.4 | 1ª |
+| `6_investigacao_picos_sp.ipynb` | Pergunta adicional: como a velocidade (`SP`) modifica os picos espectrais | 3.6 | 1ª |
+| `7_classificacao.ipynb` (a fazer) | Modelos A (tempo), B (frequência) e C (combinado) | 3.5 | 2ª |
 
-Execute em ordem. Cada notebook deve rodar do início ao fim (*Restart and Run All*). O notebook 01 gera `registros.csv`, `registros_selecionados.csv` e `janelas.csv`, que os seguintes leem.
+Execute em ordem. Cada notebook deve rodar do início ao fim (*Restart and Run All*). O notebook 1 gera `registros.csv`, `registros_selecionados.csv` e `janelas.csv`, que os seguintes leem.
 
 ## Domínio do tempo (3.2)
 
@@ -152,11 +153,11 @@ Com divisor N no desvio, vale potência = média² + desvio², usado como teste 
 
 **Par ilustrativo** usado na figura temporal: `F0_SV0_SP1_C1_R1` (saudável) e `F1_SV3_SP1_C1` (defeituosa), mesmo `SP`, `C`, sensor e duração, trecho de 20,0 a 20,5 s. É um par entre vários possíveis, escolhido por já ter sido inspecionado, e não é apresentado como o mais representativo.
 
-## Pergunta adicional do grupo
+## Pergunta adicional do grupo (3.6)
 
-[Descreva aqui a pergunta escolhida e o método usado.]
+**Como a velocidade (`SP`) modifica os picos espectrais?** Notebook `6_investigacao_picos_sp.ipynb`.
 
-Pergunta em estudo: a velocidade (`SP`) desloca os picos espectrais? Como ponto de partida, a frequência do maior pico do `AccData` entre 30 e 80 Hz (trecho de 10 a 30 s) nos registros `SP1` é de 56,3 Hz (desvio de 0,45 Hz) nos 6 saudáveis, e as médias dos grupos defeituosos (3 registros cada) vão de 50,7 a 57,0 Hz com desvios de 1,8 a 4,9 Hz, sem tendência clara com a severidade. Com 3 registros por grupo, isso é descritivo e não permite concluir causa.
+O maior pico de 30 a 200 Hz (`f1`) salta entre um pico e o seu dobro em SP1 e SP2. Por isso foi usado um pico de base `f_base`: o pico em f1/2, quando ele tem pelo menos 30% da magnitude de `f1`. Resumido pela mediana de cada registro, `f_base` sobe de 56,2 para 100,0 e 133,5 Hz de SP1 a SP3 na saudável, e de 53,0 para 95,5 e 130,2 Hz na defeituosa. Ele é de 2 a 6% menor na defeituosa nos três `SP` (AUC 0,22 / 0,15 / 0,38), e o sentido se mantém usando só os saudáveis gravados em setembro, o mesmo mês dos defeituosos. Nenhuma causa física ou rotação é atribuída aos picos.
 
 ## Classificação
 
