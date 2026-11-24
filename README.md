@@ -79,7 +79,10 @@ drone-vibration-analysis/
 ├── results/
 │   ├── figures/              # gráficos gerados
 │   └── tables/               # tabelas geradas (CSV)
-├── report/                   # relatórios em PDF
+├── report/
+│   ├── main.tex              # relatório parcial (LaTeX, compilar no Overleaf)
+│   ├── figuras/              # figuras do relatório
+│   └── figuras_relatorio.py  # gera as figuras do relatório a partir dos dados
 ├── slides/                   # apresentação final em PDF
 ├── requirements.txt
 └── README.md
@@ -172,7 +175,7 @@ O maior pico de 30 a 200 Hz (`f1`) salta entre um pico e o seu dobro em SP1 e SP
 
 - Figuras: `results/figures/`
 - Tabelas: `results/tables/`
-- Relatórios em PDF: `report/`
+- Relatório parcial: `report/main.tex` (as figuras são geradas por `python report/figuras_relatorio.py`, depois dos notebooks 1 a 6). Para o Overleaf, envie `report/relatorio_overleaf.zip` em *New Project → Upload Project*.
 - Slides: `slides/`
 
 ## Referências
